@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="#">
+	<title>배스킨 라빈스 31</title>
+</head>
+<body>
+	<h1>배스킨 라빈스 31</h1>
+	<h2>이름을 입력해주세요.</h2>
+	<form name="start" action="{% url 'start' %}">
+		<input type="text" placeholder="이름" name="username">
+		<input type="submit" value="시작하기">
+	</form>
+</body>
+</html>

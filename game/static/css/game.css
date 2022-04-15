@@ -1,0 +1,12 @@
+:root {
+	--main-color: blueviolet;
+}
+
+.numberOutput {
+	color: var(--main-color);
+}
+
+a {
+	color: black;
+	font-weight: bold;
+}

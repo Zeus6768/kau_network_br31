@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="#">
+	{% block style %}
+	<link rel="stylesheet" href="{% static 'css/game.css' %}">
+	{% endblock %}
+	<title>배스킨 라빈스 31</title>
+</head>
+<body>
+	<h2>{{username}} 님</h2>
+	<input type="text" placeholder="숫자 입력" name="numbers" id="numberInput">
+	<input type="button" onclick="inputNumbers()" value="전송"/>
+	<h3 class="numberOutput">입력한 숫자 : <p id="numberOutput"></p></h3>
+	<br><br>
+	<input type="text" style="display: none;">
+	<a href="{% url 'home' %}">다시하기</a>
+	</form>
+</body>
+</html>
+
+{% block scripts %}
+<script src="{% static 'js/async.js' %}"></script>
+<script>
+	function inputNumbers() {
+		const numberInput = document.getElementById('numberInput');
+		const formData = new FormData();
+		formData.append('numbers', numberInput.value);
+		asyncRequest('POST', 'submit', formData, updateNumbers);
+	}
+
+	function updateNumbers(res) {
+		const numberOutput = document.getElementById('numberOutput');
+		numberOutput.innerText = res['numbers'];
+	}
+</script>
+{% endblock %}
